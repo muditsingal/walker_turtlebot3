@@ -16,6 +16,18 @@ find_package(sensor_msgs REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
 
+install(DIRECTORY
+  launch
+  DESTINATION share/${PROJECT_NAME}
+)
+
+add_executable(walker_turtlebot3 src/walker_turtlebot3.cpp)
+ament_target_dependencies(walker_turtlebot3 rclcpp std_msgs sensor_msgs)
+
+install(TARGETS
+  walker_turtlebot3
+  DESTINATION lib/${PROJECT_NAME})
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
