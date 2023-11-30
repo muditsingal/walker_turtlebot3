@@ -37,19 +37,17 @@ class WalkerTurtebot3 : public rclcpp::Node {
   void main_ctrl_cb(const sensor_msgs::msg::LaserScan& lidar_msg) {
     auto lidar_scan = lidar_msg.ranges;
 
-    for(int ray_angle = 360 - sweep_span; ray_angle < 360; ray_angle++) {
-      if(lidar_scan[ray_angle] < threshold) {
+    for (int ray_angle = 360 - sweep_span; ray_angle < 360; ray_angle++) {
+      if (lidar_scan[ray_angle] < threshold) {
         turn();
-      }
-      else {
+      } else {
         straight();
       }
     }
-    for(int ray_angle = 0; ray_angle < sweep_span; ray_angle++) {
-      if(lidar_scan[ray_angle] < threshold) {
+    for (int ray_angle = 0; ray_angle < sweep_span; ray_angle++) {
+      if (lidar_scan[ray_angle] < threshold) {
         turn();
-      }
-      else {
+      } else {
         straight();
       }
     }
