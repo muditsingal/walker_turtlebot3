@@ -20,6 +20,16 @@ Recorded rosbags are in *bagfiles* folder
 
 `ros2 launch walker_turtlebot3 walker_turtlebot3.launch.py --rosbag_record:=False`
 
+## Steps to playback ROSBAG
+
+`source install/setup.bash`
+`ros2 bag play <path/to/rosbag>`
+
+## Steps to inspect ROSBAG
+
+`ros2 bag info <path/to/rosbag>`
+
+
 ## CppLint, CppCheck, and Clangd formattting
 
 ```bash
